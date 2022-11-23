@@ -1,6 +1,8 @@
 // import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { Rubik } from '@next/font/google';
+import { ThemeProvider } from 'styled-components';
+import * as theme from '@styles/index';
 
 const rubic = Rubik();
 
@@ -12,7 +14,9 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${rubic.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   );
 }
